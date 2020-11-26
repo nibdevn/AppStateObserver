@@ -1,0 +1,6 @@
+framework module Pods_AppStateObserver_Example {
+  umbrella header "Pods-AppStateObserver_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

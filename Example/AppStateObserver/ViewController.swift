@@ -7,18 +7,38 @@
 //
 
 import UIKit
+import AppStateObserver
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var statusLabel: UILabel!
+    
+    var disposeBag: AppStateDisposeBag?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    @IBAction func onTappedSubscribeButton(_ sender: UIButton) {
+        disposeBag?.dispose()
+        disposeBag = AppStateObserver.subscribe({ (state) in
+            switch state {
+            case .didBecomeActive:
+                self.statusLabel.text = "didBecomeActive"
+            case .willResignActive:
+                self.statusLabel.text = "willResignActive"
+            case .willEnterForeground:
+                self.statusLabel.text = "willEnterForeground"
+            case .didEnterBackground:
+                self.statusLabel.text = "didEnterBackground"
+            case .willTerminate:
+                self.statusLabel.text = "willTerminate"
+            }
+        })
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func onTappedDisposeButton(_ sender: UIButton) {
+        disposeBag?.dispose()
+        statusLabel.text = "Disposed"
     }
-
 }
-

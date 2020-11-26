@@ -1,0 +1,16 @@
+PODS:
+  - AppStateObserver (1.0.0)
+
+DEPENDENCIES:
+  - AppStateObserver (from `../`)
+
+EXTERNAL SOURCES:
+  AppStateObserver:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AppStateObserver: d711a7bf540a77379370d68b7527ef8c080058ed
+
+PODFILE CHECKSUM: 8da26b8b3dff0b39658889cf3a43fade1e2b18b1
+
+COCOAPODS: 1.10.0

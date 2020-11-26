@@ -2,10 +2,5 @@ use_frameworks!
 
 target 'AppStateObserver_Example' do
   pod 'AppStateObserver', :path => '../'
-
-  target 'AppStateObserver_Tests' do
-    inherit! :search_paths
-
-    
-  end
+  
 end
